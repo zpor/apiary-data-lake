@@ -28,6 +28,7 @@
 | enable_hive_metastore_metrics | Enable sending Hive Metastore metrics to CloudWatch. | string | `` | no |
 | external_data_buckets | Buckets that are not managed by Apiary but added to Hive Metastore IAM role access. | list | `<list>` | no |
 | external_database_host | External Metastore database host to support legacy installations, MySQL database won't be created by Apiary when this option is specified. | string | `` | no |
+| external_database_resource_id | Resource ID of the External Metastore database host defined by the variable external_database_host. Must be defined if external_database_host is defined. | string | `` | no |
 | hms_docker_image | Docker image ID for the Hive Metastore. | string | - | yes |
 | hms_docker_version | Version of the Docker image for the Hive Metastore. | string | - | yes |
 | hms_log_level | Log level for the Hive Metastore. | string | `INFO` | no |

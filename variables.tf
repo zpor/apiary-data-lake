@@ -103,6 +103,12 @@ variable "external_database_host" {
   default     = ""
 }
 
+variable "external_database_resource_id" {
+  description = "Resource ID of the External Metastore database host defined by the variable external_database_host. Must be defined if external_database_host is defined."
+  type        = "string"
+  default     = ""
+}
+
 variable "apiary_customer_accounts" {
   description = "AWS account IDs for clients of this Metastore."
   type        = "list"

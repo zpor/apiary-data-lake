@@ -4,10 +4,13 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 
+locals {
+  database_resource_id = "${ var.external_database_host == "" ? join("", aws_rds_cluster.apiary_cluster.*.cluster_resource_id) : var.external_database_resource_id }"
+}
+
 resource "aws_iam_role_policy" "rds_for_ecs_readonly" {
-  count = "${ var.external_database_host == "" ? 1 : 0 }"
-  name  = "rds"
-  role  = "${aws_iam_role.apiary_task_readonly.id}"
+  name = "rds"
+  role = "${aws_iam_role.apiary_task_readonly.id}"
 
   policy = <<EOF
 {
@@ -17,7 +20,7 @@ resource "aws_iam_role_policy" "rds_for_ecs_readonly" {
      {
        "Effect" : "Allow",
        "Action" : ["rds-db:connect"],
-       "Resource" : ["arn:aws:rds-db:${var.aws_region}:${data.aws_caller_identity.current.account_id}:dbuser:${aws_rds_cluster.apiary_cluster.cluster_resource_id}/iamro"]
+       "Resource" : ["arn:aws:rds-db:${var.aws_region}:${data.aws_caller_identity.current.account_id}:dbuser:${local.database_resource_id}/iamro"]
      }
    ]
 }
@@ -25,9 +28,8 @@ EOF
 }
 
 resource "aws_iam_role_policy" "rds_for_ecs_task_readwrite" {
-  count = "${ var.external_database_host == "" ? 1 : 0 }"
-  name  = "rds"
-  role  = "${aws_iam_role.apiary_task_readwrite.id}"
+  name = "rds"
+  role = "${aws_iam_role.apiary_task_readwrite.id}"
 
   policy = <<EOF
 {
@@ -37,7 +39,7 @@ resource "aws_iam_role_policy" "rds_for_ecs_task_readwrite" {
      {
        "Effect" : "Allow",
        "Action" : ["rds-db:connect"],
-       "Resource" : ["arn:aws:rds-db:${var.aws_region}:${data.aws_caller_identity.current.account_id}:dbuser:${aws_rds_cluster.apiary_cluster.cluster_resource_id}/iamrw"]
+       "Resource" : ["arn:aws:rds-db:${var.aws_region}:${data.aws_caller_identity.current.account_id}:dbuser:${local.database_resource_id}/iamrw"]
      }
    ]
 }
