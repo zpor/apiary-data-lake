@@ -51,7 +51,7 @@
      },
      {
         "name": "vault_path",
-        "value": "${vault_path}"
+        "value": "${vault_path_ro}"
      },
      {
         "name": "VAULT_LOGIN_PATH",

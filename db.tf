@@ -6,17 +6,17 @@
 
 data "vault_generic_secret" "apiarydb_master_user" {
   count = "${ var.external_database_host == "" ? 1 : 0 }"
-  path  = "${local.vault_path}/db_master_user"
+  path  = "${local.vault_path_rw}/db_master_user"
 }
 
 data "vault_generic_secret" "hive_rwuser" {
   count = "${ var.external_database_host == "" ? 1 : 0 }"
-  path  = "${local.vault_path}/hive_rwuser"
+  path  = "${local.vault_path_rw}/hive_rwuser"
 }
 
 data "vault_generic_secret" "hive_rouser" {
   count = "${ var.external_database_host == "" ? 1 : 0 }"
-  path  = "${local.vault_path}/hive_rouser"
+  path  = "${local.vault_path_ro}/hive_rouser"
 }
 
 resource "aws_db_subnet_group" "apiarydbsg" {

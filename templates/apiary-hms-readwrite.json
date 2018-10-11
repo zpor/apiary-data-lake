@@ -99,7 +99,7 @@
      },
      {
         "name": "vault_path",
-        "value": "${vault_path}"
+        "value": "${vault_path_rw}"
      },
      {
         "name": "VAULT_LOGIN_PATH",

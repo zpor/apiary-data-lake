@@ -25,8 +25,14 @@ variable "vault_internal_addr" {
   type        = "string"
 }
 
-variable "vault_path" {
-  description = "Path to Apiary secrets in Vault."
+variable "vault_path_rw" {
+  description = "Path to the readonly Apiary secrets in Vault."
+  type        = "string"
+  default     = ""
+}
+
+variable "vault_path_ro" {
+  description = "Path to the readwrite Apiary secrets in Vault."
   type        = "string"
   default     = ""
 }
