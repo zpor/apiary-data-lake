@@ -4,5 +4,5 @@ provider "grafana" {
 }
 
 resource "grafana_dashboard" "metrics" {
-  config_json = file("templates/grafana-dashboard.json")
+  config_json = "${file("${path.module}/templates/grafana-dashboard.json")}"
 }
