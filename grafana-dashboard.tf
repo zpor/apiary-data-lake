@@ -1,7 +1,8 @@
-provider "grafana" {
-  url = "https://grafana.egdl-eks-us-east-1.egdp-dev.aws.away.black"
-}
-
-resource "grafana_dashboard" "metrics" {
-  config_json = "${file("${path.module}/templates/grafana-dashboard.json")}"
+resource "kubernetes_config_map" "kibana_dashboard" {
+ metadata {
+   name = "Zs config map"
+ }
+  data = {
+   config = "${path.module}/templates/grafana-dashboard.json"
+  }
 }
