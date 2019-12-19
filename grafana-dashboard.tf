@@ -3,6 +3,7 @@ resource "kubernetes_config_map" "grafana-dashboard" {
   name = "z-dashboard"
   labels = {
    grafana_dashboard=true
+   "grafana_dashboard"=true
   }
  }
 
