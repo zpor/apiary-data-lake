@@ -4,6 +4,9 @@ resource "kubernetes_config_map" "grafana-dashboard" {
   labels = {
    grafana_dashboard=true
    "grafana_dashboard"=true
+   "grafana_dashboard"="1"
+   grafana_dashboard="1"
+   grafana_dashboard=1
   }
  }
 
