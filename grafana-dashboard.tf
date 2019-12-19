@@ -8,6 +8,6 @@ resource "kubernetes_config_map" "grafana-dashboard" {
  }
 
  data = {
-  config = "${path.module}/templates/grafana-dashboard.json"
+  config = "${file("${path.module}/templates/grafana-dashboard.json")}"
  }
 }
