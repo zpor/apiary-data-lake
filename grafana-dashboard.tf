@@ -9,6 +9,6 @@ resource "kubernetes_config_map" "grafana-dashboard" {
 
  data = {
   "dashboard-test.json" = file("${path.module}/templates/grafana-dashboard.json")
-  data = file("${path.module}/templates/grafana-dashboard.json")
+//  data = file("${path.module}/templates/grafana-dashboard.json")
  }
 }
