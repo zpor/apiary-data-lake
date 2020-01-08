@@ -3,26 +3,27 @@
     "list": [
       {
         "builtIn": 1,
+        "datasource": "-- Grafana --",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "TEST-Annotations & Alerts",
+        "name": "Annotations & Alerts",
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": 22,
+  "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
   "links": [],
   "panels": [
     {
-      "datasource": "Graphite",
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": "CloudWatch",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -43,24 +44,42 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "options": {
         "dataLinks": []
       },
       "percentage": false,
       "pointradius": 2,
-      "points": true,
+      "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-egsp-kafkaconnect",
+            "StorageType": "AllStorageTypes"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "NumberOfObjects",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Z's dashboard",
+      "title": "egsp-kafkaconnect - number of objects",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -96,17 +115,1103 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {
+        "Total": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "IntelligentTieringAStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-egsp-kafkaconnect",
+            "StorageType": "IntelligentTieringIAStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "intelligentA",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-egsp-kafkaconnect",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "standard",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "IntelligentTieringAStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-egsp-kafkaconnect",
+            "StorageType": "IntelligentTieringFAStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "intelligentFA",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total",
+          "dimensions": {},
+          "expression": "standard + intelligentFA + intelligentA",
+          "highResolution": false,
+          "id": "total",
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "D",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "egsp-kafkaconnect - bucket size by type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 7,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-lz-egsp",
+            "StorageType": "AllStorageTypes"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "NumberOfObjects",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "lz-egsp - number of objects",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Total": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 15,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Total",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "IntelligentTieringAStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-lz-egsp",
+            "StorageType": "IntelligentTieringIAStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "intelligentA",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-lz-egsp",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "standard",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "IntelligentTieringFAStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-lz-egsp",
+            "StorageType": "IntelligentTieringFAStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "intelligentFA",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total",
+          "dimensions": {},
+          "expression": "standard + intelligentA + intelligentFA",
+          "hide": false,
+          "highResolution": false,
+          "id": "total",
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "D",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ls-egsp - bucket size by type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-s3-inventory",
+            "StorageType": "AllStorageTypes"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "NumberOfObjects",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "s3-inventory - number of objects",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Total": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Total",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-s3-inventory",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "standard",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total",
+          "dimensions": {},
+          "expression": "standard",
+          "hide": false,
+          "highResolution": false,
+          "id": "total",
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "D",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "s3-inventory - bucket size by type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-sandbox",
+            "StorageType": "AllStorageTypes"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "NumberOfObjects",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "sandbox - number of objects",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Total": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 27
+      },
+      "id": 13,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Total",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-sandbox",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "standard",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total",
+          "dimensions": {},
+          "expression": "standard",
+          "hide": false,
+          "highResolution": false,
+          "id": "total",
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "D",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "sandbox - bucket size by type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-test",
+            "StorageType": "AllStorageTypes"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "",
+          "metricName": "NumberOfObjects",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "test - number of objects",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Total": "dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "CloudWatch",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Total",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-test",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "standard",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "IntelligentTieringFAStorage",
+          "dimensions": {
+            "BucketName": "apiary-672016901104-us-east-1-test",
+            "StorageType": "IntelligentTieringFAStorage"
+          },
+          "expression": "",
+          "highResolution": false,
+          "id": "intelligentFA",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "C",
+          "region": "us-east-1",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total",
+          "dimensions": {},
+          "expression": "standard + intelligentFA",
+          "hide": false,
+          "highResolution": false,
+          "id": "total",
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "D",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "test - bucket size by type",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": false,
-  "schemaVersion": 16,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-6M",
     "to": "now"
   },
   "timepicker": {
@@ -121,21 +1226,10 @@
       "1h",
       "2h",
       "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
     ]
   },
-  "timezone": "browser",
-  "title": "Z-Test",
-  "uid": "MpzrdxIik",
-  "version": 2
+  "timezone": "",
+  "title": "S3 Bucket Size",
+  "uid": "ay_ee7EWz",
+  "version": 20
 }
