@@ -1,4 +1,4 @@
-resource "kubernetes_config_map" "grafana-dashboard" {
+resource "kubernetes_consdafasdffig_map" "grafana-dashboard" {
  metadata {
   name = "z-dashboard"
   labels = {
