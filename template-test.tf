@@ -35,6 +35,6 @@ data "template_file" "dashboard" {
 //  filename = "/Users/zporobic/eg/zpor/apiary-data-lake/template-test/dashboard-rendered.tpl"
 //}
 
-output "grafana_graph" {
+output "grafana_graph2" {
   value = data.template_file.dashboard.rendered
 }
