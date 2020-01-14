@@ -18,7 +18,7 @@ data "template_file" "graphs" {
   template = "${file("${path.module}/templates/graph.tpl")}"
   count = "${length(local.apiary_data_buckets)}"
   vars = {
-    bucket_name = "${element(values(local.apiary_data_buckets[count.index]), 0)}"
+    bucket_name = "${local.apiary_data_buckets[count.index]}"
     graph_id = "${range(0, length(local.apiary_data_buckets) * 2, 2)[count.index]}"
   }
 }
