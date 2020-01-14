@@ -5,21 +5,21 @@ resource "random_integer" "graph_id" {
   max     = 50000
 }
 
-variable "apiary_data_buckets" {
-  type = "list"
-  default = [
-    { bucket1 = "egsp-kafkaconnect" },
-    { bucket2 = "lz-egsp" },
-    { bucket3 = "s3-inventory" },
-  ]
-}
+//variable "apiary_data_buckets" {
+//  type = "list"
+//  default = [
+//    { bucket1 = "egsp-kafkaconnect" },
+//    { bucket2 = "lz-egsp" },
+//    { bucket3 = "s3-inventory" },
+//  ]
+//}
 
 data "template_file" "graphs" {
   template = "${file("${path.module}/templates/graph.tpl")}"
-  count = "${length(var.apiary_data_buckets)}"
+  count = "${length(local.apiary_data_buckets)}"
   vars = {
-    bucket_name = "${element(values(var.apiary_data_buckets[count.index]), 0)}"
-    graph_id = "${range(0, length(var.apiary_data_buckets) * 2, 2)[count.index]}"
+    bucket_name = "${element(values(local.apiary_data_buckets[count.index]), 0)}"
+    graph_id = "${range(0, length(local.apiary_data_buckets) * 2, 2)[count.index]}"
   }
 }
 
