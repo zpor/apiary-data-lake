@@ -33,6 +33,13 @@ data "template_file" "dashboard-2" {
   }
 }
 
+data "template_file" "dashboard-3" {
+  template = "${file("${path.module}/templates/dashboards.tpl")}"
+  vars = {
+    panels = "[${join(",", data.template_file.graphs.*.rendered)}]"
+  }
+}
+
 //resource "local_file" "print_dashboard" {
 //  content = data.template_file.dashboard.rendered
 //  filename = "/Users/zporobic/eg/zpor/apiary-data-lake/template-test/dashboard-rendered.tpl"
