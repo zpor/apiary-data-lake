@@ -1,9 +1,5 @@
 //add ocunt to not create paid metrics when not desired
-bgfdhghgdfhgdx
-resource "random_integer" "graph_id" {
-  min     = 1
-  max     = 50000
-}
+
 
 //variable "apiary_data_buckets" {
 //  type = "list"
