@@ -36,11 +36,5 @@ data "template_file" "dashboard" {
 //}
 
 output "grafana-graph2" {
-  value = data.template_file.dashboard.rendered
-}
-
-resource "null_resource" "example" {
-  triggers = {
-    json = data.template_file.dashboard.rendered
-  }
+  value = data.template_file.graphs.rendered
 }
