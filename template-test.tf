@@ -32,5 +32,5 @@ data "template_file" "dashboard" {
 //}
 
 output "grafana-graph-358" {
-  value = data.template_file.graphs.rendered
+  value = data.template_file.dashboard.rendered
 }
