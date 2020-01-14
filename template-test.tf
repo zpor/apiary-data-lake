@@ -19,6 +19,13 @@ data "template_file" "graphs" {
   }
 }
 
+data "template_file" "dashboard" {
+  template = "${file("${path.module}/templates/dashboards.tpl")}"
+  vars = {
+    panels = "[${join(",", data.template_file.graphs.*.rendered)}]"
+  }
+}
+
 data "template_file" "dashboard-2" {
   template = "${file("${path.module}/templates/dashboards.tpl")}"
   vars = {
