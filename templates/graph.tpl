@@ -140,7 +140,7 @@
             {
               "alias": "IntelligentTieringAStorage",
               "dimensions": {
-                "BucketName": "apiary-672016901104-us-east-1-${bucket_name}",
+                "BucketName": "${bucket_name}",
                 "StorageType": "IntelligentTieringIAStorage"
               },
               "expression": "",
@@ -158,7 +158,7 @@
             {
               "alias": "StandardStorage",
               "dimensions": {
-                "BucketName": "apiary-672016901104-us-east-1-${bucket_name}",
+                "BucketName": "${bucket_name}",
                 "StorageType": "StandardStorage"
               },
               "expression": "",
@@ -176,7 +176,7 @@
             {
               "alias": "IntelligentTieringAStorage",
               "dimensions": {
-                "BucketName": "apiary-672016901104-us-east-1-${bucket_name}",
+                "BucketName": "${bucket_name}",
                 "StorageType": "IntelligentTieringFAStorage"
               },
               "expression": "",
