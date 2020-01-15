@@ -39,7 +39,7 @@
       "targets": [
         {
           "dimensions": {
-            "BucketName": "apiary-672016901104-us-east-1-${bucket_name}",
+            "BucketName": "${bucket_name}",
             "StorageType": "AllStorageTypes"
           },
           "expression": "",
