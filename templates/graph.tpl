@@ -59,7 +59,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "${bucket_name} - number of objects",
+      "title": "${title_bucket_name} - number of objects",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -211,7 +211,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "${bucket_name} - bucket size by type",
+          "title": "${title_bucket_name} - bucket size by type",
           "tooltip": {
             "shared": true,
             "sort": 0,
