@@ -44,5 +44,5 @@
     ]
   },
   "timezone": "",
-  "title": "TF-GENERATED: S3 Bucket Size"
+  "title": "S3 Bucket Size"
 }

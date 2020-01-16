@@ -11,7 +11,7 @@ data "template_file" "graphs" {
   vars = {
     bucket_name = local.apiary_data_buckets[count.index]
     title_bucket_name = local.apiary_managed_schema_names_replaced[count.index]
-    graph_id = random_integer.graph_id.*.result[count.index][count.index]
+    graph_id = random_integer.graph_id.*.result[count.index]
   }
 }
 
