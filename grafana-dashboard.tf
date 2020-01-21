@@ -1,6 +1,6 @@
 locals {
   graph_id_base = 100
-  apiary_data_buckets = 2
+  number_of_buckets = 2
 }
 
 data "template_file" "graphs" {
@@ -9,7 +9,7 @@ data "template_file" "graphs" {
   vars = {
     bucket_name = local.apiary_data_buckets[count.index]
     title_bucket_name = local.apiary_managed_schema_names_replaced[count.index]
-    graph_id = range(local.graph_id_base, length(local.apiary_data_buckets) * local.apiary_data_buckets, local.apiary_bucket_prefix)[count.index]
+    graph_id = range(local.graph_id_base, local.graph_id_base + length(local.apiary_data_buckets) * local.number_of_buckets, local.number_of_buckets)[count.index]
   }
 }
 
