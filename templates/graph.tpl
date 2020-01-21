@@ -138,10 +138,10 @@
           "steppedLine": false,
           "targets": [
             {
-              "alias": "IntelligentTieringAStorage",
+              "alias": "IntelligentTieringIAStorage",
               "dimensions": {
                 "BucketName": "${bucket_name}",
-                "StorageType": "IntelligentTieringAStorage"
+                "StorageType": "IntelligentTieringIAStorage"
               },
               "expression": "",
               "highResolution": false,
