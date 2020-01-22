@@ -77,7 +77,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Maximum"
           ]
@@ -95,7 +95,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -113,7 +113,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -211,7 +211,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -229,7 +229,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -247,7 +247,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -389,7 +389,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Maximum"
           ]
@@ -463,7 +463,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "A",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Maximum"
           ]
@@ -482,7 +482,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "B",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
@@ -501,7 +501,7 @@
           "namespace": "AWS/S3",
           "period": "300",
           "refId": "C",
-          "region": "us-east-1",
+          "region": "${aws_region}",
           "statistics": [
             "Average"
           ]
