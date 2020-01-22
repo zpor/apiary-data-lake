@@ -4,7 +4,7 @@ locals {
 }
 
 data "template_file" "grafana_graphs" {
-  template = file("${path.module}/templates/graph.tpl")
+  template = file("${path.module}/templates/grafana_graph.tpl")
   count = length(local.apiary_data_buckets)
   vars = {
     bucket_name = local.apiary_data_buckets[count.index]
@@ -16,7 +16,7 @@ data "template_file" "grafana_graphs" {
 }
 
 data "template_file" "grafana_dashboard_data" {
-  template = file("${path.module}/templates/dashboards.tpl")
+  template = file("${path.module}/templates/grafana_dashboards.tpl")
   vars = {
     panels = "[${join(",", data.template_file.grafana_graphs.*.rendered)}]"
   }
