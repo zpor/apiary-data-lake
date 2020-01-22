@@ -20,9 +20,9 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 2,
+        "w": 3,
         "x": 0,
-        "y": 0
+        "y": ${y_position}
       },
       "id": 4,
       "interval": null,
@@ -157,6 +157,104 @@
     },
     {
       "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": "CloudWatch",
+      "description": "",
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 3,
+        "y": ${y_position}
+      },
+      "id": 7,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "values": false
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "options": {},
+      "pieType": "pie",
+      "pluginVersion": "6.4.2",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "IntelligentTieringFAStorage",
+          "dimensions": {
+            "BucketName": "${bucket_name}",
+            "StorageType": "IntelligentTieringFAStorage"
+          },
+          "expression": "",
+          "hide": false,
+          "highResolution": false,
+          "id": "a",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "A",
+          "region": "${aws_region}",
+          "statistics": [
+            "Maximum"
+          ]
+        },
+        {
+          "alias": "IntelligentTieringIAStorage",
+          "dimensions": {
+            "BucketName": "${bucket_name}",
+            "StorageType": "IntelligentTieringIAStorage"
+          },
+          "expression": "",
+          "hide": false,
+          "highResolution": false,
+          "id": "b",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "B",
+          "region": "${aws_region}",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "StandardStorage",
+          "dimensions": {
+            "BucketName": "${bucket_name}",
+            "StorageType": "StandardStorage"
+          },
+          "expression": "",
+          "hide": false,
+          "highResolution": false,
+          "id": "c",
+          "metricName": "BucketSizeBytes",
+          "namespace": "AWS/S3",
+          "period": "300",
+          "refId": "C",
+          "region": "${aws_region}",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Bucket Size By Tier",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
       "bars": false,
       "cacheTimeout": null,
       "dashLength": 10,
@@ -168,8 +266,8 @@
       "gridPos": {
         "h": 9,
         "w": 11,
-        "x": 2,
-        "y": 0
+        "x": 8,
+        "y": ${y_position}
       },
       "id": 5,
       "legend": {
@@ -332,9 +430,9 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 2,
-        "x": 13,
-        "y": 0
+        "w": 4,
+        "x": 19,
+        "y": ${y_position}
       },
       "id": 6,
       "interval": null,
@@ -416,100 +514,44 @@
       "valueName": "current"
     },
     {
-      "aliasColors": {},
-      "breakPoint": "50%",
-      "cacheTimeout": null,
-      "combine": {
-        "label": "Others",
-        "threshold": 0
-      },
-      "datasource": "CloudWatch",
-      "description": "",
-      "fontSize": "80%",
-      "format": "short",
+      "datasource": null,
       "gridPos": {
-        "h": 9,
-        "w": 2,
+        "h": 1,
+        "w": 23,
         "x": 0,
-        "y": 9
+        "y": ${y_position + 9}
       },
-      "id": 7,
-      "interval": null,
-      "legend": {
-        "percentage": true,
-        "show": true,
-        "values": false
-      },
-      "legendType": "Under graph",
-      "links": [],
-      "maxDataPoints": 3,
-      "nullPointMode": "connected",
+      "id": 9,
       "options": {},
-      "pieType": "pie",
-      "pluginVersion": "6.4.2",
-      "strokeWidth": 1,
       "targets": [
         {
-          "alias": "IntelligentTieringFAStorage",
-          "dimensions": {
-            "BucketName": "${bucket_name}",
-            "StorageType": "IntelligentTieringFAStorage"
-          },
-          "expression": "",
-          "hide": false,
-          "highResolution": false,
-          "id": "a",
-          "metricName": "BucketSizeBytes",
-          "namespace": "AWS/S3",
-          "period": "300",
-          "refId": "A",
-          "region": "${aws_region}",
-          "statistics": [
-            "Maximum"
-          ]
-        },
-        {
-          "alias": "IntelligentTieringIAStorage",
-          "dimensions": {
-            "BucketName": "${bucket_name}",
-            "StorageType": "IntelligentTieringIAStorage"
-          },
-          "expression": "",
-          "hide": false,
-          "highResolution": false,
-          "id": "b",
-          "metricName": "BucketSizeBytes",
-          "namespace": "AWS/S3",
-          "period": "300",
-          "refId": "B",
-          "region": "${aws_region}",
-          "statistics": [
-            "Average"
-          ]
-        },
-        {
-          "alias": "StandardStorage",
-          "dimensions": {
-            "BucketName": "${bucket_name}",
-            "StorageType": "StandardStorage"
-          },
-          "expression": "",
-          "hide": false,
-          "highResolution": false,
-          "id": "c",
-          "metricName": "BucketSizeBytes",
-          "namespace": "AWS/S3",
-          "period": "300",
-          "refId": "C",
-          "region": "${aws_region}",
-          "statistics": [
-            "Average"
-          ]
+          "expr": "",
+          "refId": "A"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Bucket Size By Tier",
-      "type": "grafana-piechart-panel",
+      "title": "",
+      "type": "mxswat-separator-panel"
+    }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Bucket Size",
+      "type": "singlestat",
+      "valueFontSize": "100%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "",
+          "value": ""
+        }
+      ],
       "valueName": "current"
     }
