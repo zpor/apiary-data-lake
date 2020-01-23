@@ -44,5 +44,5 @@
     ]
   },
   "timezone": "",
-  "title": "S3 Bucket Size"
+  "title": "S3 Bucket Size - 2"
 }
