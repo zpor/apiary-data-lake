@@ -24,7 +24,7 @@
         "x": 0,
         "y": ${y_position}
       },
-      "id": 4,
+      "id": ${graph_id},
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -173,7 +173,7 @@
         "x": 3,
         "y": ${y_position}
       },
-      "id": 7,
+      "id": ${graph_id + 1},
       "interval": null,
       "legend": {
         "percentage": true,
@@ -269,7 +269,7 @@
         "x": 8,
         "y": ${y_position}
       },
-      "id": 5,
+      "id": ${graph_id + 2},
       "legend": {
         "avg": false,
         "current": false,
@@ -434,7 +434,7 @@
         "x": 19,
         "y": ${y_position}
       },
-      "id": 6,
+      "id": ${graph_id + 3},
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -521,7 +521,7 @@
         "x": 0,
         "y": ${y_position + 9}
       },
-      "id": 9,
+      "id": ${graph_id + 4},
       "options": {},
       "targets": [
         {
