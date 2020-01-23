@@ -22,6 +22,10 @@ data "template_file" "grafana_dashboard_data" {
   }
 }
 
+output "grafana-dashboard" {
+  value = data.template_file.grafana_dashboard_data.rendered
+}
+
 resource "kubernetes_config_map" "grafana_dashboard" {
   count = var.hms_instance_type == "k8s" ? 1 : 0
   metadata {
