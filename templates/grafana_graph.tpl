@@ -1,4 +1,21 @@
     {
+      "content": "\n# ${title_bucket_name}",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 23,
+        "x": 0,
+        "y": ${y_position}
+      },
+      "id": ${graph_id},
+      "mode": "markdown",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
       "cacheTimeout": null,
       "colorBackground": false,
       "colorPostfix": false,
@@ -24,7 +41,7 @@
         "x": 0,
         "y": ${y_position}
       },
-      "id": ${graph_id},
+      "id": ${graph_id + 1},
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -173,7 +190,7 @@
         "x": 3,
         "y": ${y_position}
       },
-      "id": ${graph_id + 1},
+      "id": ${graph_id + 2},
       "interval": null,
       "legend": {
         "percentage": true,
@@ -269,7 +286,7 @@
         "x": 8,
         "y": ${y_position}
       },
-      "id": ${graph_id + 2},
+      "id": ${graph_id + 3},
       "legend": {
         "avg": false,
         "current": false,
@@ -311,7 +328,7 @@
           "refId": "A",
           "region": "${aws_region}",
           "statistics": [
-            "Average"
+            "Maximum"
           ]
         },
         {
@@ -434,7 +451,7 @@
         "x": 19,
         "y": ${y_position}
       },
-      "id": ${graph_id + 3},
+      "id": ${graph_id + 4},
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -512,25 +529,4 @@
         }
       ],
       "valueName": "current"
-    },
-    {
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 23,
-        "x": 0,
-        "y": ${y_position + 9}
-      },
-      "id": ${graph_id + 4},
-      "options": {},
-      "targets": [
-        {
-          "expr": "",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
-      "type": "mxswat-separator-panel"
     }
